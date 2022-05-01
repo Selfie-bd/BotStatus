@@ -74,17 +74,17 @@ async def BotzHub():
                     c += 1
                 except FloodWaitError as f:
                     logging.info(f"Floodwait!\n\nSleeping for {f.seconds}...")
-                    sleep(f.seconds + 15)
+                    sleep(f.seconds + 8)
             await user_bot.edit_message(int(chnl_id), int(msg_id), edit_text)
             k = pytz.timezone("Asia/Kolkata")
             month = dt.now(k).strftime("%B")
             day = dt.now(k).strftime("%d")
             year = dt.now(k).strftime("%Y")
             t = dt.now(k).strftime("%H:%M:%S")
-            edit_text += f"**ʟᴀꜱᴛ ᴄʜᴇᴄᴋ** ☞ `{t} - {day} {month} {year} [ɪꜱᴛ]`\n\n`Bots status are auto-updated every 4 hours`"
+            edit_text += f"**ʟᴀꜱᴛ ᴄʜᴇᴄᴋ** ☞ `{t} - {day} {month} {year} [ɪꜱᴛ]`\n\n`Bots status are auto-updated every 1 hours`"
             await user_bot.edit_message(int(chnl_id), int(msg_id), edit_text)
             logging.info(f"Checks since last restart - {c}")
-            logging.info("Sleeping for 4 hours.") # we use workflows here.
+            logging.info("Sleeping for 1 hours.") # we use workflows here.
             if c != 0:
                 break
 
