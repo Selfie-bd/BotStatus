@@ -67,24 +67,24 @@ async def BotzHub():
                     msg = history.messages[0].id
                     if snt.id == msg:
                         logging.info(f"@{bot} is down.")
-                        edit_text += f"**◪ [{bot} ☞](https://t.me/{bot}) ❌** \n\n"
+                        edit_text += f"**⍟ [{bot} ☞](https://t.me/{bot}) ❌** \n\n"
                     elif snt.id + 1 == msg:
-                        edit_text += f"**◪ [{bot} ☞](https://t.me/{bot}) ✅** \n\n"
+                        edit_text += f"**⍟ [{bot} ☞](https://t.me/{bot}) ✅** \n\n"
                     await user_bot.send_read_acknowledge(bot)
                     c += 1
                 except FloodWaitError as f:
                     logging.info(f"Floodwait!\n\nSleeping for {f.seconds}...")
-                    sleep(f.seconds + 8)
+                    sleep(f.seconds + 10)
             await user_bot.edit_message(int(chnl_id), int(msg_id), edit_text)
             k = pytz.timezone("Asia/Kolkata")
             month = dt.now(k).strftime("%B")
             day = dt.now(k).strftime("%d")
             year = dt.now(k).strftime("%Y")
             t = dt.now(k).strftime("%H:%M:%S")
-            edit_text += f"**ʟᴀꜱᴛ ᴄʜᴇᴄᴋ** ☞ `{t} - {day} {month} {year} [ɪꜱᴛ]`\n\n`Bots status are auto-updated every 1 hours`"
+            edit_text += f"**ʟᴀꜱᴛ ᴄʜᴇᴄᴋ** ☞ `{t} - {day} {month} {year} [ɪꜱᴛ]`\n\n`Bots status are auto-updated every 4 hours`"
             await user_bot.edit_message(int(chnl_id), int(msg_id), edit_text)
             logging.info(f"Checks since last restart - {c}")
-            logging.info("Sleeping for 1 hours.") # we use workflows here.
+            logging.info("Sleeping for 4 hours.") # we use workflows here.
             if c != 0:
                 break
 
