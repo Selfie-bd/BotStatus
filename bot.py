@@ -44,7 +44,7 @@ async def BotzHub():
             except MessageNotModifiedError:
                 pass
             c = 0
-            edit_text = "** 🔰 ʙᴏᴛ ʟɪꜱᴛ 🔰  **\nThis status pages refreshes with each bot's uptime status automatically.Only the most active bots are listed on this checker.\n\nStatus Graph:\n• ✅ : Bot is working fine•\n❌ : Bot is facing a downtime\n==========================\n\n"
+            edit_text = "** 🔰 ʙᴏᴛ ʟɪꜱᴛ 🔰  **\n\nThis status pages refreshes with each bot's uptime status automatically.Only the most active bots are listed on this checker.\n\n📊 Status Graph:\n✅ : Bot is working fine\n❌ : Bot is facing a downtime\n==========================\n"
             for bot in bots:
                 try:
                     logging.info(f"[INFO] checking @{bot}")
@@ -81,7 +81,7 @@ async def BotzHub():
             day = dt.now(k).strftime("%d")
             year = dt.now(k).strftime("%Y")
             t = dt.now(k).strftime("%H:%M:%S")
-            edit_text += f"==========================\n\n**ʟᴀꜱᴛ ᴄʜᴇᴄᴋ** ☞ `{t} - {day} {month} {year} [ɪꜱᴛ]`\n\n`Bots status are auto-updated every 4 hours`"
+            edit_text += f"==========================\n\n**ʟᴀꜱᴛ ᴄʜᴇᴄᴋ** ☞ `{t} - {day} {month} {year} [ɪꜱᴛ]`\n\n`Bots status are auto-updated every 4 hours`\n\n⚡ Powered by @GroupDcBots"
             await user_bot.edit_message(int(chnl_id), int(msg_id), edit_text)
             logging.info(f"Checks since last restart - {c}")
             logging.info("Sleeping for 4 hours.") # we use workflows here.
