@@ -44,7 +44,7 @@ async def BotzHub():
             except MessageNotModifiedError:
                 pass
             c = 0
-            edit_text = "**@GroupDcBots 🔰 ʙᴏᴛ ʟɪꜱᴛ 🔰  **\n\n"
+            edit_text = "** 🔰 ʙᴏᴛ ʟɪꜱᴛ 🔰  **\nThis status pages refreshes with each bot's uptime status automatically.Only the most active bots are listed on this checker.\n\nStatus Graph:\n• ✅ : Bot is working fine•\n❌ : Bot is facing a downtime\n==========================\n\n"
             for bot in bots:
                 try:
                     logging.info(f"[INFO] checking @{bot}")
@@ -67,9 +67,9 @@ async def BotzHub():
                     msg = history.messages[0].id
                     if snt.id == msg:
                         logging.info(f"@{bot} is down.")
-                        edit_text += f"**⍟ [{bot} ☞](https://t.me/{bot}) ❌** \n\n"
+                        edit_text += f"**⍟ [{bot} ☞](https://t.me/{bot}) ❌** \n"
                     elif snt.id + 1 == msg:
-                        edit_text += f"**⍟ [{bot} ☞](https://t.me/{bot}) ✅** \n\n"
+                        edit_text += f"**⍟ [{bot} ☞](https://t.me/{bot}) ✅** \n"
                     await user_bot.send_read_acknowledge(bot)
                     c += 1
                 except FloodWaitError as f:
@@ -81,7 +81,7 @@ async def BotzHub():
             day = dt.now(k).strftime("%d")
             year = dt.now(k).strftime("%Y")
             t = dt.now(k).strftime("%H:%M:%S")
-            edit_text += f"**ʟᴀꜱᴛ ᴄʜᴇᴄᴋ** ☞ `{t} - {day} {month} {year} [ɪꜱᴛ]`\n\n`Bots status are auto-updated every 4 hours`"
+            edit_text += f"==========================\n\n**ʟᴀꜱᴛ ᴄʜᴇᴄᴋ** ☞ `{t} - {day} {month} {year} [ɪꜱᴛ]`\n\n`Bots status are auto-updated every 4 hours`"
             await user_bot.edit_message(int(chnl_id), int(msg_id), edit_text)
             logging.info(f"Checks since last restart - {c}")
             logging.info("Sleeping for 4 hours.") # we use workflows here.
