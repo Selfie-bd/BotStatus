@@ -67,9 +67,9 @@ async def BotzHub():
                     msg = history.messages[0].id
                     if snt.id == msg:
                         logging.info(f"@{bot} is down.")
-                        edit_text += f"**⍟ [{bot} ☞](https://t.me/{bot}) ❌** \n"
+                        edit_text += f"**╭⎋  [{bot} ☞](https://t.me/{bot})\n╰⊚ Status : ❌** \n"
                     elif snt.id + 1 == msg:
-                        edit_text += f"**⍟ [{bot} ☞](https://t.me/{bot}) ✅** \n"
+                        edit_text += f"**╭⎋ [{bot} ☞](https://t.me/{bot})\n╰⊚ Status : ✅** \n"
                     await user_bot.send_read_acknowledge(bot)
                     c += 1
                 except FloodWaitError as f:
