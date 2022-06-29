@@ -44,7 +44,7 @@ async def BotzHub():
             except MessageNotModifiedError:
                 pass
             c = 0
-            edit_text = "** 🔰 ʙᴏᴛ ʟɪꜱᴛ 🔰  **\n\nThis status pages refreshes with each bot's uptime status automatically.Only the most active bots are listed on this checker.\n\n📊 Status Graph:\n✅ : Bot is working fine\n❌ : Bot is facing a downtime\n==========================\n"
+            edit_text = "** 🔰 ʙᴏᴛ ʟɪꜱᴛ 🔰\n\n📊 Status Graph:\n╭⎋ ✅ : Bot is working fine\n╰⊚ ❌ : Bot is facing a downtime\n==========================\n"
             for bot in bots:
                 try:
                     logging.info(f"[INFO] checking @{bot}")
@@ -67,9 +67,9 @@ async def BotzHub():
                     msg = history.messages[0].id
                     if snt.id == msg:
                         logging.info(f"@{bot} is down.")
-                        edit_text += f"**╭⎋  [{bot} ☞](https://t.me/{bot})\n╰⊚ Status : ❌** \n"
+                        edit_text += f"**╭⎋  @{bot}\n╰⊚ Status : ❌** \n"
                     elif snt.id + 1 == msg:
-                        edit_text += f"**╭⎋ [{bot} ☞](https://t.me/{bot})\n╰⊚ Status : ✅** \n"
+                        edit_text += f"**╭⎋ @{bot}\n╰⊚ Status : ✅** \n"
                     await user_bot.send_read_acknowledge(bot)
                     c += 1
                 except FloodWaitError as f:
